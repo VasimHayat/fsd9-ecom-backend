@@ -38,7 +38,7 @@ Example:
 Step-by-step guide on how to install and configure the project.
 
 ### Example:
-1. Clone the repository: `git clone https://github.com/username/repo.git`
+1. Clone the repository: `git clone [https://github.com/username/repo.git](https://github.com/VasimHayat/fsd9-ecom-backend)`
 2. Install dependencies: `using maven update/install`
 3. Configure application properites like db config in `application.yml`
 4. Start the server: `Application.java`
