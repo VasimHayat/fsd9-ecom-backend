@@ -52,7 +52,7 @@ Explain how to use the e-commerce site. Provide examples and usage scenarios.
   4. Proceed to checkout.
 
 ## Contributing
-Explain how people can contribute to your project. This might include:
+You can contribute to your project. This might include:
 
 Bug reporting
 Feature requests
