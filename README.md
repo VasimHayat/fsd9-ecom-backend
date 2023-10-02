@@ -1,9 +1,9 @@
-E-Commerce Project
-Project Logo/Icon (If applicable)
+# E-Commerce Project
+ 
 
-Brief description or tagline of your project.
+## Brief description.
 
-Table of Contents
+## Table of Contents
 Introduction
 Features
 Getting Started
@@ -16,7 +16,7 @@ License
 Introduction
 A brief introduction to your e-commerce project. Explain what it does and why it's useful.
 
-Features
+## Features
 List the key features of your e-commerce site.
 
 Feature 1
@@ -26,24 +26,24 @@ Feature N
 Getting Started
 Provide instructions on how to get the project up and running on a local machine.
 
-Prerequisites
+## Prerequisites
 List any software or dependencies that need to be installed.
 
 Example:
-- Node.js
-- npm
-- MongoDB
+- Java
+- Spring Boot
+- PostgreSql
 
-Installation
+## Installation
 Step-by-step guide on how to install and configure the project.
 
-Example:
+### Example:
 1. Clone the repository: `git clone https://github.com/username/repo.git`
 2. Install dependencies: `npm install`
 3. Configure environment variables (if applicable).
 4. Start the server: `npm start`
 
-Usage
+## Usage
 Explain how to use the e-commerce site. Provide examples and usage scenarios.
   Example:
   1. Navigate to the homepage.
@@ -51,14 +51,14 @@ Explain how to use the e-commerce site. Provide examples and usage scenarios.
   3. Add items to the cart.
   4. Proceed to checkout.
 
-Contributing
+## Contributing
 Explain how people can contribute to your project. This might include:
 
 Bug reporting
 Feature requests
 Pull requests
 
-Example:
+### Example:
 1. Fork the project.
 2. Create a new branch: `git checkout -b feature/awesome-feature`
 3. Make your changes and commit: `git commit -m 'Add awesome feature'`
