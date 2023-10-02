@@ -3,7 +3,7 @@ package com.fsd9.ecom.common.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-@Entity
+@Entity(name = "eouserrole")
 @Getter
 @Setter
 @SequenceGenerator(name = "eouserrole_sequence", sequenceName ="eouserrole_sequence", allocationSize = 50)
