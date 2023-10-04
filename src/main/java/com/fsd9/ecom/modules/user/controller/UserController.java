@@ -1,7 +1,7 @@
-package com.fsd9.ecom.controller;
+package com.fsd9.ecom.modules.user.controller;
 
-import com.fsd9.ecom.common.model.EOUser;
-import com.fsd9.ecom.common.service.EOUserService;
+import com.fsd9.ecom.modules.user.model.EOUser;
+import com.fsd9.ecom.modules.user.service.EOUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

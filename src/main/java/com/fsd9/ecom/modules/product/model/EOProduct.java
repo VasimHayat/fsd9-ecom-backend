@@ -1,7 +1,10 @@
-package com.fsd9.ecom.common.model;
+package com.fsd9.ecom.modules.product.model;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @SequenceGenerator(name = "eoproduct_sequence", sequenceName ="eoproduct_sequence", allocationSize = 50)
@@ -42,7 +45,7 @@ public class EOProduct {
 
     @ManyToOne
     @JoinColumn(name = "EOProductCategoryID")
-    EOProductCategory  eoProductCategory;
+    EOProductCategory eoProductCategory;
 
 
 }

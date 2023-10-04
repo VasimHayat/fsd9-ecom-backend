@@ -1,7 +1,8 @@
 package com.fsd9.ecom.startup;
 
-import com.fsd9.ecom.common.model.EORole;
-import com.fsd9.ecom.common.repositories.EORoleRepository;
+
+import com.fsd9.ecom.modules.user.model.EORole;
+import com.fsd9.ecom.modules.user.repositories.EORoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

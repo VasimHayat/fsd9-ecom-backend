@@ -1,4 +1,4 @@
-package com.fsd9.ecom.common.dto.resp;
+package com.fsd9.ecom.modules.user.dto.resp;
 
 import lombok.Builder;
 import lombok.Data;

@@ -1,8 +1,8 @@
 package com.fsd9.ecom.common.service;
 
-import com.fsd9.ecom.common.model.EOUser;
-import com.fsd9.ecom.common.model.EOUserRole;
-import com.fsd9.ecom.common.repositories.EOUserRepository;
+
+import com.fsd9.ecom.modules.user.model.EOUser;
+import com.fsd9.ecom.modules.user.repositories.EOUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.User;

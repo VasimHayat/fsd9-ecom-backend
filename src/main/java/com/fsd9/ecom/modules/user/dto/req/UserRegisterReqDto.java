@@ -1,4 +1,4 @@
-package com.fsd9.ecom.common.dto.req;
+package com.fsd9.ecom.modules.user.dto.req;
 
 import lombok.*;
 import org.springframework.stereotype.Component;

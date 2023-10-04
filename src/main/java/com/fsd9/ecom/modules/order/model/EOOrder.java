@@ -1,10 +1,12 @@
-package com.fsd9.ecom.common.model;
+package com.fsd9.ecom.modules.order.model;
 
+import com.fsd9.ecom.modules.user.model.EOUser;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import java.sql.Timestamp;
 import java.util.LinkedHashSet;
 import java.util.Set;

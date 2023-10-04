@@ -1,4 +1,4 @@
-package com.fsd9.ecom.common.model;
+package com.fsd9.ecom.modules.user.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -8,7 +8,10 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
 @SequenceGenerator(name = "eouser_sequence", sequenceName ="eouser_sequence", allocationSize = 50)

@@ -1,6 +1,6 @@
-package com.fsd9.ecom.common.repositories;
+package com.fsd9.ecom.modules.user.repositories;
 
-import com.fsd9.ecom.common.model.EOUser;
+import com.fsd9.ecom.modules.user.model.EOUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

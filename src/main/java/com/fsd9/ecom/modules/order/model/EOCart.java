@@ -1,5 +1,6 @@
-package com.fsd9.ecom.common.model;
+package com.fsd9.ecom.modules.order.model;
 
+import com.fsd9.ecom.modules.user.model.EOUser;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

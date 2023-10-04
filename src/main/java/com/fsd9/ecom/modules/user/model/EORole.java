@@ -1,4 +1,4 @@
-package com.fsd9.ecom.common.model;
+package com.fsd9.ecom.modules.user.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

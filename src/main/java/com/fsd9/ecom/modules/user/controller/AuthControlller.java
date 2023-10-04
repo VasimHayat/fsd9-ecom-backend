@@ -1,12 +1,12 @@
-package com.fsd9.ecom.controller;
+package com.fsd9.ecom.modules.user.controller;
 
-import com.fsd9.ecom.common.dto.req.UserRegisterReqDto;
-import com.fsd9.ecom.common.model.EOUser;
-import com.fsd9.ecom.common.repositories.EOUserRepository;
-import com.fsd9.ecom.common.service.EOUserService;
-import com.fsd9.ecom.security.JwtUtil;
 import com.fsd9.ecom.common.bean.JwtRequest;
 import com.fsd9.ecom.common.bean.JwtResponse;
+import com.fsd9.ecom.modules.user.dto.req.UserRegisterReqDto;
+import com.fsd9.ecom.modules.user.model.EOUser;
+import com.fsd9.ecom.modules.user.repositories.EOUserRepository;
+import com.fsd9.ecom.modules.user.service.EOUserService;
+import com.fsd9.ecom.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
