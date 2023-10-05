@@ -1,0 +1,38 @@
+[
+  {
+    "name":"Electronics",
+    "uid":"UID001",
+    "displayOrder":1,
+    "description":"This category includes a wide range of electronic devices and accessories such as smartphones, laptops, cameras, headphones, and other gadgets"
+  },
+  {
+    "name":"Clothing and Apparel",
+    "uid":"UID002",
+    "displayOrder":2,
+    "description":"This category encompasses all types of clothing items, including shirts, dresses, pants, shoes, accessories, and more, catering to various styles and preferences"
+  },
+  {
+    "name":"Home and Furniture",
+    "uid":"UID003",
+    "displayOrder":3,
+    "description":"This category features products for home improvement, decoration, and furnishing, including items like sofas, beds, tables, kitchenware, and decor pieces"
+  },
+  {
+    "name":"Beauty and Personal Care",
+    "uid":"UID004",
+    "displayOrder":4,
+    "description":" Products in this category focus on cosmetics, skincare, haircare, fragrances, grooming tools, and other items related to personal hygiene and appearance"
+  },
+  {
+    "name":"Books",
+    "uid":"UID005",
+    "displayOrder":5,
+    "description":"This category offers a wide selection of books, e-books"
+  },
+  {
+    "name":"Toys",
+    "uid":"UID006",
+    "displayOrder":6,
+    "description":"This category offers a wide selection of toys"
+  }
+]

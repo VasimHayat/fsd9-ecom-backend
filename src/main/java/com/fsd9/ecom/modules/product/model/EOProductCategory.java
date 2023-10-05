@@ -30,6 +30,12 @@ public class EOProductCategory {
     @Column(unique = true)
     private String name; // Name of the category
 
+    @Column(unique = true)
+    private String uid;
+
+    @Column(nullable = false)
+    private Float displayOrder;
+
     @Column(columnDefinition = "TEXT")
     private String description; // Description of the category
 

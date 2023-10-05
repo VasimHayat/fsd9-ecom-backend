@@ -1,5 +1,8 @@
 package com.fsd9.ecom.modules.product.service;
 
+import com.fsd9.ecom.modules.product.model.EOProduct;
+import com.fsd9.ecom.modules.product.model.EOProductCategory;
+import com.fsd9.ecom.modules.product.repositories.EOProductCategoryRepository;
 import com.fsd9.ecom.modules.user.dto.req.UserRegisterReqDto;
 import com.fsd9.ecom.modules.user.model.EOUser;
 import com.fsd9.ecom.modules.user.model.EOUserRole;
@@ -16,4 +19,11 @@ import java.util.List;
 @Service
 public class EOProductService {
 
+    @Autowired
+    private EOProductCategoryRepository productCategoryRepository;
+
+
+    public List<EOProductCategory> getAllProdCategory() {
+        return this.productCategoryRepository.findAll();
+    }
 }

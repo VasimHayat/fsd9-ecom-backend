@@ -31,6 +31,7 @@ public class SecurityConfig {
                                .requestMatchers("/actuator/**").permitAll()
                                .requestMatchers("/auth/register").permitAll()
                                .requestMatchers("/auth/login").permitAll()
+                               .requestMatchers("/product/**").permitAll()
 
                         .anyRequest().authenticated()
                 ).exceptionHandling(ex -> ex.authenticationEntryPoint(jwtAuthenticationEntryPoint))

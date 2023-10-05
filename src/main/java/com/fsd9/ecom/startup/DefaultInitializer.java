@@ -1,11 +1,26 @@
 package com.fsd9.ecom.startup;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fsd9.ecom.modules.product.model.EOProductCategory;
+import com.fsd9.ecom.modules.product.repositories.EOProductCategoryRepository;
 import com.fsd9.ecom.modules.user.model.EORole;
 import com.fsd9.ecom.modules.user.repositories.EORoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.json.GsonJsonParser;
+import org.springframework.boot.json.JsonParser;
+import org.springframework.boot.json.JsonParserFactory;
 import org.springframework.stereotype.Component;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Map;
 
 @Component
 public class DefaultInitializer implements CommandLineRunner {
@@ -13,13 +28,36 @@ public class DefaultInitializer implements CommandLineRunner {
     @Autowired
     private final EORoleRepository roleRepository;
 
-    public DefaultInitializer(EORoleRepository roleRepository) {
+    @Autowired
+    private final  EOProductCategoryRepository eoProductCategoryRepository;
+
+    public DefaultInitializer(EORoleRepository roleRepository,EOProductCategoryRepository prodCatgRepo) {
         this.roleRepository = roleRepository;
+        this.eoProductCategoryRepository = prodCatgRepo;
     }
 
     @Override
     public void run(String... args) {
-        createDefaultRoles();
+        //createDefaultRoles();
+        //this.creteCategories();
+    }
+
+
+    private void creteCategories(){
+        File file = new File("src/main/resources/default_data/categories.json");
+        ObjectMapper objectMapper = new ObjectMapper();
+        EOProductCategory[] productCategories;
+        try {
+            productCategories = objectMapper.readValue(file, EOProductCategory[].class);
+            // Save to Database
+            for (EOProductCategory category : productCategories) {
+                System.out.println(category.toString());
+                this.eoProductCategoryRepository.save(category);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     private void createDefaultRoles() {
