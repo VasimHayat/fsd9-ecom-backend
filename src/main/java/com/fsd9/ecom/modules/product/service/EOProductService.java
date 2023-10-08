@@ -2,6 +2,7 @@ package com.fsd9.ecom.modules.product.service;
 
 import com.fsd9.ecom.modules.product.model.EOProduct;
 import com.fsd9.ecom.modules.product.model.EOProductCategory;
+import com.fsd9.ecom.modules.product.repositories.EOEOProductRepository;
 import com.fsd9.ecom.modules.product.repositories.EOProductCategoryRepository;
 import com.fsd9.ecom.modules.user.dto.req.UserRegisterReqDto;
 import com.fsd9.ecom.modules.user.model.EOUser;
@@ -22,8 +23,18 @@ public class EOProductService {
     @Autowired
     private EOProductCategoryRepository productCategoryRepository;
 
+    @Autowired
+    private EOEOProductRepository productRepository;
+
 
     public List<EOProductCategory> getAllProdCategory() {
         return this.productCategoryRepository.findAll();
     }
+
+
+    public EOProductCategory findByUid(String uid) {
+        return this.productCategoryRepository.findByUid(uid);
+    }
+
+
 }

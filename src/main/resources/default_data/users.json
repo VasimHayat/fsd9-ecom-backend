@@ -1,0 +1,34 @@
+[
+  {
+    "firstName":"FSD9",
+    "lastName":"Seller",
+    "dob":"09/03/1991",
+    "password":"12345",
+    "email":"seller@fsd9.com",
+    "role": "ROLE_SELLER"
+  },
+  {
+    "firstName":"FSD9",
+    "lastName":"Admin",
+    "dob":"09/03/1991",
+    "password":"12345",
+    "email":"admin@fsd9.com",
+    "role": "ROLE_ADMIN"
+  },
+  {
+    "firstName":"FSD9",
+    "lastName":"Support",
+    "dob":"09/03/1991",
+    "password":"12345",
+    "email":"support@fsd9.com",
+    "role": "ROLE_SUPPORT_USER"
+  },
+  {
+    "firstName":"FSD9",
+    "lastName":"User",
+    "dob":"09/03/1991",
+    "password":"12345",
+    "email":"user@fsd9.com",
+    "role": "ROLE_USER"
+  }
+]

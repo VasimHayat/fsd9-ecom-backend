@@ -12,7 +12,9 @@ import java.util.Optional;
 @Repository
 public interface EOProductCategoryRepository extends JpaRepository<EOProductCategory,Long> {
 
-    EORole findByName(String name);
+    EOProductCategory findByName(String name);
+
+    EOProductCategory findByUid(String uid);
 
     public Optional<EOProductCategory> findById(Long id);
 

@@ -1,5 +1,6 @@
 package com.fsd9.ecom.modules.product.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -40,6 +41,7 @@ public class EOProductCategory {
     private String description; // Description of the category
 
     @OneToMany(mappedBy = "eoProductCategory",cascade = CascadeType.ALL)
+    @JsonIgnore
     private Set<EOProduct> eoProductArray = new LinkedHashSet<>();
 
 }

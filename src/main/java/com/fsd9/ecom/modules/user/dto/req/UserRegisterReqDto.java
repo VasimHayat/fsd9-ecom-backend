@@ -15,4 +15,5 @@ public class UserRegisterReqDto {
     private String dob;
     private String password;
     private String email;
+    private String role = "ROLE_USER";
 }

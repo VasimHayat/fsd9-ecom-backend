@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EOUserService {
@@ -35,15 +36,14 @@ public class EOUserService {
                     .email(reqDto.getEmail())
                     .password(passwordEncoder.encode(reqDto.getPassword()))
                     .dob(DateUtil.stringToLocalDate(reqDto.getDob())).build();
-            System.out.println(eoUser);
             EOUserRole eoUserRole = new EOUserRole();
             eoUserRole.setEoUser(eoUser);
-            eoUserRole.setEoRole(roleRepository.getUserRole());
+            String roleName = reqDto.getRole();
+            if(roleName == null){
+                roleName ="ROLE_USER";
+            }
+            eoUserRole.setEoRole(roleRepository.findByName(roleName));
             eoUser.setEoUserRoleArray(Collections.singleton(eoUserRole));
-
-            System.out.println("##################### ");
-            System.out.println(eoUser);
-            System.out.println("##################### ");
             userRepository.save(eoUser);
         }catch (Exception e){
             e.printStackTrace();
@@ -55,5 +55,9 @@ public class EOUserService {
 
     public List<EOUser> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    public Optional<EOUser> findById(Long id) {
+        return this.userRepository.findById(id);
     }
 }
