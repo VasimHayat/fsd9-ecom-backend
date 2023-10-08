@@ -21,9 +21,10 @@ public class EOProductImg {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "EOProductID")
+    @JoinColumn(name = "EOProductID",nullable = false)
     @JsonIgnore
     EOProduct eoProduct;
-    
+
+    @Column(nullable = false)
     private String imgUrl;
 }

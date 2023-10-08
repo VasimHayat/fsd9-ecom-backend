@@ -35,6 +35,7 @@ public class EOUser implements UserDetails {
     private String email;
 
     @Column(nullable = false)
+    @JsonIgnore
     private String password;
 
     private String firstName;

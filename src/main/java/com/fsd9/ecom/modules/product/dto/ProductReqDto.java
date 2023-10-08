@@ -1,4 +1,4 @@
-package com.fsd9.ecom.startup;
+package com.fsd9.ecom.modules.product.dto;
 
 import com.fsd9.ecom.modules.product.model.EOProduct;
 import com.fsd9.ecom.modules.product.model.EOProductCategory;
@@ -16,7 +16,7 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductBean {
+public class ProductReqDto {
 
     private double price = 0.0;
     private int stock = 0;
