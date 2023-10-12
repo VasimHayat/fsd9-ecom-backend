@@ -47,8 +47,13 @@ public class AuthControlller {
         EOUser eoUser = userRepository.getUserByEmail(request.getEmail());
 
         if(eoUser == null){
-            eoUser = this.eoUserService.createNewUser(request);
-            return new ResponseEntity<>(eoUser, HttpStatus.OK);
+            try{
+                eoUser = this.eoUserService.createNewUser(request);
+                return new ResponseEntity<>(eoUser, HttpStatus.OK);
+            }catch (Exception e){
+                return new ResponseEntity<>(eoUser, HttpStatus.OK);
+            }
+
         }else{
             return new ResponseEntity<>(eoUser, HttpStatus.OK);
         }
