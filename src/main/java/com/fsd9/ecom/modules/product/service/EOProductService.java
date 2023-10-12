@@ -42,7 +42,9 @@ public class EOProductService {
         return this.productRepository.findAll();
     }
 
-
+    public EOProduct findById(long id){
+        return this.productRepository.findById(id).get();
+    }
     public EOProductCategory findByUid(String uid) {
         return this.productCategoryRepository.findByUid(uid);
     }

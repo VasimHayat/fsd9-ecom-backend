@@ -15,6 +15,7 @@ public interface EOEOProductRepository extends JpaRepository<EOProduct,Long> {
 
     EOProduct findByName(String name);
 
+
     @Query("SELECT e FROM EOProduct e WHERE e.eoProductCategory.id = :catgId")
     List<EOProduct> findByCategoryId(@Param("catgId") long catgId);
 
