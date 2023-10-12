@@ -37,6 +37,9 @@ public class EOProductCategory {
     @Column(nullable = false)
     private Float displayOrder;
 
+
+    private String imgUrl;
+
     @Column(columnDefinition = "TEXT")
     private String description; // Description of the category
 
