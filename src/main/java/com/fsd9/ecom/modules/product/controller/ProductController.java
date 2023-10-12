@@ -39,4 +39,9 @@ public class ProductController {
     public EOProduct getProductById(@PathVariable String id) {
         return this.eoProductService.findById(Long.valueOf(id));
     }
+
+    @GetMapping("seller/{sellerId}")
+    public List<EOProduct> getProductsBySeller(@PathVariable String id) {
+        return this.eoProductService.findBySellerId(Long.valueOf(id));
+    }
 }

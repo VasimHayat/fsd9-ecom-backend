@@ -45,6 +45,10 @@ public class EOProductService {
     public EOProduct findById(long id){
         return this.productRepository.findById(id).get();
     }
+
+    public List<EOProduct> findBySellerId(long id){
+        return this.productRepository.findBySellerId(id);
+    }
     public EOProductCategory findByUid(String uid) {
         return this.productCategoryRepository.findByUid(uid);
     }
