@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -33,12 +34,16 @@ public class AuthControlller {
 
     @PostMapping("/login")
     public ResponseEntity<JwtResponse> login(@RequestBody JwtRequest request) {
+        EOUser eoUser = this.eoUserService.authenticate(request);
 
-        UserDetails userDetails = userDetailsService.loadUserByUsername(request.getUsername());
 
-            JwtResponse response = JwtResponse.builder()
-                    .jwtToken(jwtUtil.generateToken(userDetails.getUsername()))
-                    .username(userDetails.getUsername()).build();
+        JwtResponse response = JwtResponse.builder()
+                .jwtToken(jwtUtil.generateToken(eoUser.getUsername()))
+                .email(eoUser.getEmail())
+                .firstName(eoUser.getFirstName())
+                .lastName(eoUser.getLastName())
+                .id(eoUser.getId())
+                .username(eoUser.getUsername()).build();
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
@@ -46,15 +51,15 @@ public class AuthControlller {
     public ResponseEntity<EOUser> register(@RequestBody UserRegisterReqDto request) {
         EOUser eoUser = userRepository.getUserByEmail(request.getEmail());
 
-        if(eoUser == null){
-            try{
+        if (eoUser == null) {
+            try {
                 eoUser = this.eoUserService.createNewUser(request);
                 return new ResponseEntity<>(eoUser, HttpStatus.OK);
-            }catch (Exception e){
+            } catch (Exception e) {
                 return new ResponseEntity<>(eoUser, HttpStatus.OK);
             }
 
-        }else{
+        } else {
             return new ResponseEntity<>(eoUser, HttpStatus.OK);
         }
 
@@ -62,7 +67,7 @@ public class AuthControlller {
     }
 
     @GetMapping("/user")
-    public String users () {
-      return "THis istest use...";
+    public String users() {
+        return "THis istest use...";
     }
 }

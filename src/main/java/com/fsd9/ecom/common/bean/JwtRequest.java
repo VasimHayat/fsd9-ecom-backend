@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 @ToString
 public class JwtRequest {
-
     public String username;
     public String password;
+    private String role = "ROLE_USER";
 }

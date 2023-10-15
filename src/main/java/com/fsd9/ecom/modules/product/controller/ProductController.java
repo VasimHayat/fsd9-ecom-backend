@@ -33,13 +33,13 @@ public class ProductController {
         return this.eoProductService.getProductsByCategory(category);
     }
     @GetMapping("seller/{sellerId}")
-    public List<EOProduct> getProductsBySeller(@PathVariable String id) {
-        return this.eoProductService.findBySellerId(Long.valueOf(id));
+    public List<EOProduct> getProductsBySeller(@PathVariable String sellerId) {
+        return this.eoProductService.findBySellerId(Long.valueOf(sellerId));
     }
 
     @GetMapping("/{productId}")
-    public EOProduct getProductById(@PathVariable String id) {
-        return this.eoProductService.findById(Long.valueOf(id));
+    public EOProduct getProductById(@PathVariable String productId) {
+        return this.eoProductService.findById(Long.valueOf(productId));
     }
 
     @PutMapping("/{productId}")
