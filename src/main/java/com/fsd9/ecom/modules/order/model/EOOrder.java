@@ -3,6 +3,7 @@ package com.fsd9.ecom.modules.order.model;
 import com.fsd9.ecom.modules.user.model.EOUser;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,6 +16,7 @@ import java.util.Set;
 @SequenceGenerator(name = "eoorder_sequence", sequenceName ="eoorder_sequence", allocationSize = 50)
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "eoorder",
@@ -32,8 +34,8 @@ public class EOOrder {
     @JoinColumn(name = "EOUserID")
     private EOUser eoUser; // The user who placed the order
 
-    @OneToMany(mappedBy = "eoOrder")
-    private Set<EOOrderItem> eoOrderItemArray = new LinkedHashSet<>(); // List of items in the order
+//     @OneToMany(mappedBy = "eoOrder")
+//     private Set<EOOrderItem> eoOrderItemArray = new LinkedHashSet<>(); // List of items in the order
 
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)

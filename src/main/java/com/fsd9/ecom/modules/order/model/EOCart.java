@@ -31,6 +31,6 @@ public class EOCart {
     @JoinColumn(name = "EOUserID",nullable = false)
     private EOUser eoUser; // The user who owns this cart
 
-    @OneToMany(mappedBy = "eoCart", cascade = CascadeType.ALL)
-    private Set<EOCartItem> eoCartItemArray = new LinkedHashSet<>(); // List of items in the cart
+//     @OneToMany(mappedBy = "eoCart", cascade = CascadeType.ALL)
+//     private Set<EOCartItem> eoCartItemArray = new LinkedHashSet<>(); // List of items in the cart
 }
