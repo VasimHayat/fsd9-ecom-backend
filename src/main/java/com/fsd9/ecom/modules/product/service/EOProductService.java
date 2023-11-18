@@ -4,16 +4,11 @@ import com.fsd9.ecom.modules.product.dto.ProductReqDto;
 import com.fsd9.ecom.modules.product.model.EOProduct;
 import com.fsd9.ecom.modules.product.model.EOProductCategory;
 import com.fsd9.ecom.modules.product.model.EOProductImg;
-import com.fsd9.ecom.modules.product.repositories.EOEOProductRepository;
+import com.fsd9.ecom.modules.product.repositories.EOProductRepository;
 import com.fsd9.ecom.modules.product.repositories.EOProductCategoryRepository;
-import com.fsd9.ecom.modules.user.dto.req.UserRegisterReqDto;
 import com.fsd9.ecom.modules.user.model.EOUser;
-import com.fsd9.ecom.modules.user.model.EOUserRole;
-import com.fsd9.ecom.modules.user.repositories.EORoleRepository;
 import com.fsd9.ecom.modules.user.repositories.EOUserRepository;
-import com.fsd9.ecom.utils.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -25,7 +20,7 @@ public class EOProductService {
     private EOProductCategoryRepository productCategoryRepository;
 
     @Autowired
-    private EOEOProductRepository productRepository;
+    private EOProductRepository productRepository;
 
     @Autowired
     private EOUserRepository userRepository;

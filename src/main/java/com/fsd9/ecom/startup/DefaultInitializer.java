@@ -3,14 +3,11 @@ package com.fsd9.ecom.startup;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fsd9.ecom.modules.product.dto.ProductReqDto;
-import com.fsd9.ecom.modules.product.model.EOProduct;
 import com.fsd9.ecom.modules.product.model.EOProductCategory;
-import com.fsd9.ecom.modules.product.repositories.EOEOProductRepository;
 import com.fsd9.ecom.modules.product.repositories.EOProductCategoryRepository;
 import com.fsd9.ecom.modules.product.service.EOProductService;
 import com.fsd9.ecom.modules.user.dto.req.UserRegisterReqDto;
 import com.fsd9.ecom.modules.user.model.EORole;
-import com.fsd9.ecom.modules.user.model.EOUser;
 import com.fsd9.ecom.modules.user.repositories.EORoleRepository;
 import com.fsd9.ecom.modules.user.service.EOUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +18,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 @Component
 public class DefaultInitializer implements CommandLineRunner {

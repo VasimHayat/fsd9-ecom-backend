@@ -28,7 +28,7 @@ public class EOCart {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "EOUserID",nullable = false)
+    @JoinColumn(name = "EOUserID",nullable = true)
     private EOUser eoUser; // The user who owns this cart
 
     @OneToMany(mappedBy = "eoCart", cascade = CascadeType.ALL)

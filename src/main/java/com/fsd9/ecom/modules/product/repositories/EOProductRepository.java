@@ -1,10 +1,6 @@
 package com.fsd9.ecom.modules.product.repositories;
 
 import com.fsd9.ecom.modules.product.model.EOProduct;
-import com.fsd9.ecom.modules.user.model.EORole;
-import com.fsd9.ecom.modules.user.model.EOUser;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -14,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface EOEOProductRepository extends JpaRepository<EOProduct,Long> {
+public interface EOProductRepository extends JpaRepository<EOProduct,Long> {
 
     EOProduct findByName(String name);
 
@@ -26,6 +22,8 @@ public interface EOEOProductRepository extends JpaRepository<EOProduct,Long> {
 
     @Query("SELECT e FROM EOProduct e WHERE e.sellerUser.id = :id")
     List<EOProduct> findBySellerId(@Param("id") long id);
+
+
 
 
 }
