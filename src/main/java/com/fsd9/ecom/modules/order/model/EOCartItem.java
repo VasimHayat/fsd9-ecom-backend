@@ -3,10 +3,7 @@ package com.fsd9.ecom.modules.order.model;
 
 import com.fsd9.ecom.modules.product.model.EOProduct;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @SequenceGenerator(name = "eocartitem_sequence", sequenceName ="eocartitem_sequence", allocationSize = 50)
@@ -14,9 +11,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Table(name = "eocartitem",
         indexes = {
-                @Index(name = "idx_eocartitem_sku", columnList = "EOProductID,EOCartID",unique = true)
+                @Index(name = "idx_eocartitem_sku", columnList = "eoproductid,eocartid",unique = true)
         }
 )
 public class EOCartItem {
@@ -25,7 +23,7 @@ public class EOCartItem {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "eocartitem_sequence")
     private Long id;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "EOProductID",nullable = false)
     private EOProduct eoProduct; // The product associated with this cart item
 

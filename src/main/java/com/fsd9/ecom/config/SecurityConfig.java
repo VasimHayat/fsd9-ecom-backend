@@ -43,8 +43,10 @@ public class SecurityConfig {
                                .requestMatchers("/api/v1/auth/register").permitAll()
                                .requestMatchers("/api/v1/auth/login").permitAll()
                                .requestMatchers("/api/v1/user/**").permitAll()
-
                                .requestMatchers("/api/v1/products/**").permitAll()
+                              .requestMatchers("/api/v1/cart/**").permitAll()
+
+
 
                         .anyRequest().authenticated()
                 ).exceptionHandling(ex -> ex.authenticationEntryPoint(jwtAuthenticationEntryPoint))
