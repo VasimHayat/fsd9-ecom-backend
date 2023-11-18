@@ -13,13 +13,14 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class EOUserService {
-
 
     @Autowired
     private EOUserRepository userRepository;
@@ -30,28 +31,30 @@ public class EOUserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public EOUser createNewUser(UserRegisterReqDto reqDto){
-        EOUser eoUser =null;
-        try{
+    public EOUser createNewUser(UserRegisterReqDto reqDto) {
+        EOUser eoUser = null;
+        try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate date = LocalDate.parse(reqDto.getDob(), formatter);
             eoUser = EOUser.builder()
                     .firstName(reqDto.getFirstName())
                     .lastName(reqDto.getLastName())
                     .email(reqDto.getEmail())
                     .password(passwordEncoder.encode(reqDto.getPassword()))
-                    .dob(DateUtil.stringToLocalDate(reqDto.getDob())).build();
+                    // .role(reqDto.getRole())
+                    .dob(date).build();
             EOUserRole eoUserRole = new EOUserRole();
             eoUserRole.setEoUser(eoUser);
             String roleName = reqDto.getRole();
-            if(roleName == null){
-                roleName ="ROLE_USER";
+            if (roleName == null) {
+                roleName = "ROLE_USER";
             }
             eoUserRole.setEoRole(roleRepository.findByName(roleName));
             eoUser.setEoUserRoleArray(Collections.singleton(eoUserRole));
             userRepository.save(eoUser);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
 
         return eoUser;
     }
@@ -65,16 +68,16 @@ public class EOUserService {
         if (eoUser == null) {
             throw new UsernameNotFoundException("Invalid credentials");
         }
-       boolean isAuthenticated = passwordEncoder.matches(request.getPassword(), eoUser.getPassword());
+        boolean isAuthenticated = passwordEncoder.matches(request.getPassword(), eoUser.getPassword());
         if (!isAuthenticated) {
             throw new UsernameNotFoundException("Invalid credentials");
         }
-        if(!eoUser.getEoUserRoleArray().stream().findFirst().get().getEoRole().getName().equalsIgnoreCase(request.getRole())){
+        if (!eoUser.getEoUserRoleArray().stream().findFirst().get().getEoRole().getName()
+                .equalsIgnoreCase(request.getRole())) {
             throw new UsernameNotFoundException("Invalid Role");
         }
-       return eoUser;
+        return eoUser;
     }
-
 
     public Optional<EOUser> findById(Long id) {
         return this.userRepository.findById(id);

@@ -14,17 +14,15 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
-@SequenceGenerator(name = "eouser_sequence", sequenceName ="eouser_sequence", allocationSize = 50)
+@SequenceGenerator(name = "eouser_sequence", sequenceName = "eouser_sequence", allocationSize = 50)
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "eouser",
- indexes = {
-         @Index(name = "idx_eouser_email", columnList = "email",unique = true)
- }
-)
+@Table(name = "eouser", indexes = {
+        @Index(name = "idx_eouser_email", columnList = "email", unique = true)
+})
 public class EOUser implements UserDetails {
 
     @Id
@@ -43,14 +41,18 @@ public class EOUser implements UserDetails {
 
     private LocalDate dob;
 
-    @OneToMany(mappedBy = "eoUser", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "eoUser", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonIgnore
     private Set<EOUserRole> eoUserRoleArray = new LinkedHashSet<>();
+
+    // @OneToOne(cascade = CascadeType.ALL)
+    // @JoinColumn(name = "role")
+    // private EORole role;
 
     @Override
     @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        Collection<GrantedAuthority> authorities= new ArrayList<>();
+        Collection<GrantedAuthority> authorities = new ArrayList<>();
         for (EOUserRole eoUserRole : this.eoUserRoleArray) {
             authorities.add(new SimpleGrantedAuthority(eoUserRole.getEoRole().getName()));
         }

@@ -4,10 +4,11 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+    generate-ddl: true
   datasource: 
-    url: jdbc:postgresql://localhost:5432/fsd9ecom
-    username: postgres
-    password: root
+    url: jdbc:postgresql://db.luizvzbduxbunbiswfvi.supabase.co:5432/postgres?user=postgres&password=jainfsdgroup9
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driverClassName: org.postgresql.Driver
   sql:
     init: 

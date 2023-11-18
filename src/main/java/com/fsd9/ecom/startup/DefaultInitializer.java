@@ -42,10 +42,10 @@ public class DefaultInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-//        this.createDefaultRoles();
-//        this.createDefaultUsers();
-//        this.creteCategories();
-//        this.createProducts();
+    //    this.createDefaultRoles();
+    //    this.createDefaultUsers();
+    //    this.creteCategories();
+    //    this.createProducts();
 
     }
 
