@@ -2,6 +2,8 @@ package com.fsd9.ecom.modules.order.dto;
 
 import com.fsd9.ecom.modules.order.model.EOCart;
 import com.fsd9.ecom.modules.order.model.EOCartItem;
+import com.fsd9.ecom.modules.order.model.EOOrder;
+import com.fsd9.ecom.modules.order.model.EOOrderItem;
 import com.fsd9.ecom.modules.product.model.EOProduct;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,26 +17,29 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class EOCartResDto {
-    private Long eoCartPK;
+public class EOUserOrderRepDto {
 
+    private long eoOrderPk;
     private double totalAmount =0;
-    private Set<EOCartItemResDto> eoCartItemArray = new LinkedHashSet<>();
-    public EOCartResDto(EOCart eoCart){
-       this.eoCartPK = eoCart.getId();
-        eoCart.getEoCartItemArray().forEach(e->{
-            totalAmount+=e.getEoProduct().getPrice() * e.getQuantity();
-            this.eoCartItemArray.add(new EOCartItemResDto(e));
-        });
-   }
 
+    private Set<EOUserOrderItemRepDto> eoUserOrderItemRepDto = new LinkedHashSet<>();
+    public EOUserOrderRepDto(EOOrder eoOrder){
+        this.eoOrderPk = eoOrder.getId();
+        eoOrder.getEoOrderItemArray().forEach(e->{
+            totalAmount+=e.getEoProduct().getPrice() * e.getQuantity();
+            this.eoUserOrderItemRepDto.add(new EOUserOrderItemRepDto(e));
+        });
+    }
 }
+
+
+
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
- class EOCartItemResDto {
+class EOUserOrderItemRepDto {
     private Long id;
     private int quantity;
 
@@ -46,7 +51,7 @@ public class EOCartResDto {
 
     private double price;
 
-    public EOCartItemResDto(EOCartItem eoCartItem){
+    public EOUserOrderItemRepDto(EOOrderItem eoCartItem){
         this.id = eoCartItem.getId();
 
         this.quantity = eoCartItem.getQuantity();
@@ -59,4 +64,3 @@ public class EOCartResDto {
     }
 
 }
-

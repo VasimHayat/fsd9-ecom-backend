@@ -14,5 +14,6 @@ public class EOCartReqDto {
     private Long eoCartPK;
     private Long eoProductItemPK;
     private int qnt;
+    private Long eoUserPK;
 
 }

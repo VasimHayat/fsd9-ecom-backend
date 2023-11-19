@@ -3,10 +3,7 @@ package com.fsd9.ecom.modules.order.model;
 
 import com.fsd9.ecom.modules.product.model.EOProduct;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @SequenceGenerator(name = "eoorderitem_sequence", sequenceName ="eoorderitem_sequence", allocationSize = 50)
@@ -14,6 +11,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Table(name = "eoorderitem",
         indexes = {
                 @Index(name = "idx_eoorderitem_order_product", columnList = "EOOrderID,EOProductID",unique = true),

@@ -25,8 +25,6 @@ public class EOCartService {
     @Autowired
     public EOCartItemRepository eoCartItemRepository;
 
-    @Autowired
-    public EOOrderRepository eoOrderRepository;
 
     @Autowired
     public EOProductRepository eoProductRepository;
@@ -52,9 +50,6 @@ public class EOCartService {
             eoCart.getEoCartItemArray().add(eoCartItem);
             eoCart = this.eoCartRepository.save(eoCart);
         }
-
-
-
 
         return eoCart;
 
@@ -82,4 +77,8 @@ public class EOCartService {
 
     }
 
+    @Transactional
+    public EOCart cartDetail(EOCartReqDto eoCartReqDto) {
+      return this.eoCartRepository.findById(eoCartReqDto.getEoCartPK()).get();
+    }
 }
